@@ -212,5 +212,23 @@
 ;  (reduce + 1 [2 3 4])
 ;  (reduce concat [] [[1 2] [3 4] [5 6] [7 8]]))
 
+; fn [] 函数体 声明函数
+;(println ((fn [] "Hello, World!")))
+
+; 定义变量
+;(def variable 1)
+;(println variable)
+
+; 定义函数
+;(def helloWorld (fn [] "Hello, World!"))
+;(println (helloWorld))
+
+; 快捷定义函数
+;(defn helloWorld2 [] "Hello, World!")
+;(println (helloWorld2))
+
+(defn helloWorld3 [name]
+  (str "Hello" name))
+
 
 
