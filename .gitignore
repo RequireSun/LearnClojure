@@ -1,4 +1,5 @@
 ﻿idea
-lib/
+.idea/
+lib
 
 LearnClojure.iml
