@@ -1,22 +1,22 @@
-; ²Î¿¼£º
-; (Ô­ÎÄÃ»ÁË, Ö»Ê£¿ìÕÕÁË) http://webcache.googleusercontent.com/search?q=cache:woI2RKojiEUJ:huangznote.readthedocs.org/zh_CN/latest/language/clojure/composite_type.html+&cd=5&hl=zh-CN&ct=clnk&gl=cn
+; å‚è€ƒï¼š
+; (åŸæ–‡æ²¡äº†, åªå‰©å¿«ç…§äº†) http://webcache.googleusercontent.com/search?q=cache:woI2RKojiEUJ:huangznote.readthedocs.org/zh_CN/latest/language/clojure/composite_type.html+&cd=5&hl=zh-CN&ct=clnk&gl=cn
 ; http://developer.51cto.com/art/201307/401465.htm
 ; http://clojure-api-cn.readthedocs.org/en/latest/
 ; http://clojure.github.io/clojure/
 
-; Ê¹ÓÃ str º¯ÊıÁ¬½Ó×Ö·û´®
+; ä½¿ç”¨ str å‡½æ•°è¿æ¥å­—ç¬¦ä¸²
 ;(println (str "Hello" " " "World" "!"))
 
-; ÔËËã·ûÔËËã
+; è¿ç®—ç¬¦è¿ç®—
 ;(print (+ 1 1) (- 2 1) (* 1 2) (/ 2 1))
 
-; ±È½Ï
+; æ¯”è¾ƒ
 ;(println (= 1 1) (= 2 1))
 
-; È¡·´ÔËËã·û
+; å–åè¿ç®—ç¬¦
 ;(println (not true))
 
-; Ê¹ÓÃ class À´ÅĞ¶ÏÊı¾İÀàĞÍ, nil ¾ÍÊÇ null
+; ä½¿ç”¨ class æ¥åˆ¤æ–­æ•°æ®ç±»å‹, nil å°±æ˜¯ null
 ;(println
 ;  (str
 ;    (class 1) "\n"
@@ -26,26 +26,26 @@
 ;    (class nil)
 ;    ))
 
-; Ê¹ÓÃ quote »òÊÇ ' À´´òÓ¡Ò»¸ö±í´ïÊ½(²»Ö´ĞĞ, Ö±½Ó´òÓ¡×ÖÃæÁ¿)
+; ä½¿ç”¨ quote æˆ–æ˜¯ ' æ¥æ‰“å°ä¸€ä¸ªè¡¨è¾¾å¼(ä¸æ‰§è¡Œ, ç›´æ¥æ‰“å°å­—é¢é‡)
 ;(println
 ;  (quote (+ 1 2))
 ;  '(class 1)
 ;  (not true))
 
-; Ê¹ÓÃ eval ÔËËã×ÖÃæÁ¿±íÊ¾µÄ±í´ïÊ½
+; ä½¿ç”¨ eval è¿ç®—å­—é¢é‡è¡¨ç¤ºçš„è¡¨è¾¾å¼
 ;(println
 ;  (eval '(+ 1 2))
 ;  (eval (quote (+ 1 2))))
 
-; ĞòÁĞ(ÁĞ±í)
+; åºåˆ—(åˆ—è¡¨)
 ;(println
 ;  ''(1 2 3)       ":" (class '(1 2 3)) "\n"
 ;  '(list 1 2 3)  ":" (class (list 1 2 3)) "\n")
 
-; ¶¨ÒåÒ»¸öÁĞ±í²¢½øĞĞ¸÷ÖÖ²Ù×÷, ¿ÉÒÔ¿´³öÃ¿¸ö²Ù×÷µÄ½á¹û¶¼ÊÇÉú³ÉÒ»¸öĞÂµÄÁĞ±í, ²¢²»»á¸Ä±äÔ­ÁĞ±í
-; peek È¡³öÍ·ÔªËØ
-; pop È¡³ö³ıÍ·ÔªËØÖ®ÍâµÄËùÓĞÔªËØ
-; conj ½«Ò»¸öĞÂÔªËØÌí¼Óµ½ÁĞ±íÍ·²¿
+; å®šä¹‰ä¸€ä¸ªåˆ—è¡¨å¹¶è¿›è¡Œå„ç§æ“ä½œ, å¯ä»¥çœ‹å‡ºæ¯ä¸ªæ“ä½œçš„ç»“æœéƒ½æ˜¯ç”Ÿæˆä¸€ä¸ªæ–°çš„åˆ—è¡¨, å¹¶ä¸ä¼šæ”¹å˜åŸåˆ—è¡¨
+; peek å–å‡ºå¤´å…ƒç´ 
+; pop å–å‡ºé™¤å¤´å…ƒç´ ä¹‹å¤–çš„æ‰€æœ‰å…ƒç´ 
+; conj å°†ä¸€ä¸ªæ–°å…ƒç´ æ·»åŠ åˆ°åˆ—è¡¨å¤´éƒ¨
 ;(def list_01 (list "a" 'b "c"))
 ;(println list_01
 ;  (peek list_01)
@@ -53,17 +53,17 @@
 ;  (conj list_01 'alpha)
 ;  list_01)
 
-; ÏòÁ¿ ¾ÍÊÇÊı×é
+; å‘é‡ å°±æ˜¯æ•°ç»„
 ;(println
 ;  '[1 2 3]          ":" (class [1 2 3]) "\n"
 ;  ''[1 2 3]         ":" (class '[1 2 3]) "\n"
 ;  '(vector 1 2 3)  ":" (class (vector 1 2 3)))
 
-; ¶¨ÒåÒ»¸öÏòÁ¿²¢½øĞĞ¸÷ÖÖ²Ù×÷
-; get »ñÈ¡Ö¸¶¨ÏÂ±êµÄÊı¾İ, Èô²»´æÔÚÔò·µ»Ø nil
-; nth »ñÈ¡Ö¸¶¨ÏÂ±êµÄÊı¾İ, µÚÈı¸ö²ÎÊıÎªÄ¬ÈÏÖµ, Î´Ö¸¶¨Ê±Èô²éÑ¯²»´æÔÚµÄÔªËØ, Ôò»á±¨´í, Ö¸¶¨Ö®ºó»á·µ»ØÖ¸¶¨µÄÖµ
-; ¿ÉÒÔÖ±½ÓÊ¹ÓÃÏòÁ¿×÷Îªº¯ÊıÀ´»ñÈ¡Ö¸¶¨µÄÔªËØ, µ«¸ÃÔªËØ²»´æÔÚÊ±»á±¨´í
-; assoc ĞŞ¸ÄÖ¸¶¨ÏÂ±êµÄÊı¾İ, ÈôÖ¸¶¨µÄÏÂ±êÎªÏòÁ¿µÄÄ©Î², ÔòÌí¼Ó¸ÃÊı¾İ
+; å®šä¹‰ä¸€ä¸ªå‘é‡å¹¶è¿›è¡Œå„ç§æ“ä½œ
+; get è·å–æŒ‡å®šä¸‹æ ‡çš„æ•°æ®, è‹¥ä¸å­˜åœ¨åˆ™è¿”å› nil
+; nth è·å–æŒ‡å®šä¸‹æ ‡çš„æ•°æ®, ç¬¬ä¸‰ä¸ªå‚æ•°ä¸ºé»˜è®¤å€¼, æœªæŒ‡å®šæ—¶è‹¥æŸ¥è¯¢ä¸å­˜åœ¨çš„å…ƒç´ , åˆ™ä¼šæŠ¥é”™, æŒ‡å®šä¹‹åä¼šè¿”å›æŒ‡å®šçš„å€¼
+; å¯ä»¥ç›´æ¥ä½¿ç”¨å‘é‡ä½œä¸ºå‡½æ•°æ¥è·å–æŒ‡å®šçš„å…ƒç´ , ä½†è¯¥å…ƒç´ ä¸å­˜åœ¨æ—¶ä¼šæŠ¥é”™
+; assoc ä¿®æ”¹æŒ‡å®šä¸‹æ ‡çš„æ•°æ®, è‹¥æŒ‡å®šçš„ä¸‹æ ‡ä¸ºå‘é‡çš„æœ«å°¾, åˆ™æ·»åŠ è¯¥æ•°æ®
 ;(def vector_01 (vector 'a 'b 'b 'd))
 ;(println vector_01
 ;  (get vector_01 0)
@@ -74,24 +74,27 @@
 ;  (assoc vector_01 2 'c)
 ;  vector_01)
 
-; Ó³Éä
-; ¹şÏ£Ó³Éä
-; °Ñ¹şÏ£×÷Îªº¯ÊıÖ±½Óµ÷ÓÃ¿ÉÒÔÈ¡µÃ¶ÔÓ¦µÄÖµ, Öµ²»´æÔÚÊ±·µ»Ø nil
-; get È¡µÃ¶ÔÓ¦µÄÖµ, Öµ²»´æÔÚÊ±·µ»Ø nil
-; assoc Ìí¼Ó key-value, ½«»á¸²¸ÇÖØ¸´µÄ
-; dissoc É¾³ı key-value, ½«»áºöÂÔ²»´æÔÚµÄ
+; æ˜ å°„
+; å“ˆå¸Œæ˜ å°„
+; æŠŠå“ˆå¸Œä½œä¸ºå‡½æ•°ç›´æ¥è°ƒç”¨å¯ä»¥å–å¾—å¯¹åº”çš„å€¼, å€¼ä¸å­˜åœ¨æ—¶è¿”å› nil
+; get å–å¾—å¯¹åº”çš„å€¼, å€¼ä¸å­˜åœ¨æ—¶è¿”å› nil
+; å¯ä»¥ä½¿ç”¨å…³é”®å­—ä½œä¸ºå‡½æ•°, æ˜ å°„ä¸ºå‚æ•°, å–å‡ºæ˜ å°„ä¸­çš„å€¼, è‹¥ä¸å­˜åœ¨åˆ™è¿”å› nil
+; assoc æ·»åŠ  key-value, å°†ä¼šè¦†ç›–é‡å¤çš„
+; dissoc åˆ é™¤ key-value, å°†ä¼šå¿½ç•¥ä¸å­˜åœ¨çš„
 ;(def hash_01 (hash-map :k1 "value1" :k2 100))
 ;(println hash_01
 ;  (hash_01 :k1)
 ;  (hash_01 :no-exists-key)
 ;  (get hash_01 :k2)
-;  (get hash_01 :no-exists-key) "\n"
+;  (get hash_01 :no-exists-key)
+;  (:k1 hash_01)
+;  (:no-exists-key hash_01) "\n"
 ;  (assoc hash_01 :newKey '(1 2 3) :anotherKey [1 2 3] :k1 "test" :k1 "ttt")
 ;  (dissoc hash_01 :k1 :no-exists-key))
 
-; ÓĞĞòÓ³Éä
-; ²»ÖªµÀÎªÉ¶Êı×ÖºÍ×Ö·û²»ÄÜÍ¬Ê±×öË÷Òı
-; sorted-map-by ¿ÉÒÔÖ¸¶¨±È½ÏËùÓÃµÄ·ûºÅ, ÓÃµÈºÅµÄÊ±ºò´íÂÒµÄÒ»ËúºıÍ¿
+; æœ‰åºæ˜ å°„
+; ä¸çŸ¥é“ä¸ºå•¥æ•°å­—å’Œå­—ç¬¦ä¸èƒ½åŒæ—¶åšç´¢å¼•
+; sorted-map-by å¯ä»¥æŒ‡å®šæ¯”è¾ƒæ‰€ç”¨çš„ç¬¦å·, ç”¨ç­‰å·çš„æ—¶å€™é”™ä¹±çš„ä¸€å¡Œç³Šæ¶‚
 ;(def sorted_01 (sorted-map :ac 1 :b 3 :1 4))
 ;(def sorted_02 (sorted-map 1 :b 10 :1 5 'd))
 ;(def sorted_03 (sorted-map-by > 1 :a 2 :b 3 :c))
@@ -103,8 +106,8 @@
 ;  sorted_04 "\n"
 ;  (get sorted_03 2) "\n")
 
-; merge ºÏ²¢Ó³Éä, Èç¹ûÓ³ÉäµÄ key ÀàĞÍ²»Í³Ò», »á±¬Õ¨
-; zipmap Éú³ÉÓ³Éä, Éú³É³öÀ´µÄÊÇÆÕÍ¨¹şÏ£Ó³Éä, ÇÒË³ĞòÎªÊäÈëµÄµ¹Ğò, Ç·È±µÄÖµ½«»áºöÂÔ
+; merge åˆå¹¶æ˜ å°„, å¦‚æœæ˜ å°„çš„ key ç±»å‹ä¸ç»Ÿä¸€, ä¼šçˆ†ç‚¸
+; zipmap ç”Ÿæˆæ˜ å°„, ç”Ÿæˆå‡ºæ¥çš„æ˜¯æ™®é€šå“ˆå¸Œæ˜ å°„, ä¸”é¡ºåºä¸ºè¾“å…¥çš„å€’åº, æ¬ ç¼ºçš„å€¼å°†ä¼šå¿½ç•¥
 ;(println
 ;  (merge sorted_03 sorted_04) "\n"
 ;  (zipmap '(:a :b :e :d :c) '(1 3 5 2)) "\n"
@@ -113,14 +116,14 @@
 ;  (class sorted_04) "\n"
 ;  (class {:a 1 :b 2 :c 3}))
 
-; ¼¯ºÏ
+; é›†åˆ
 ;(def set_01 #{ :a :b :c :d })
 ;(def set_02 (hash-set :e :f :d))
 
-; conj Ïò¼¯ºÏÖĞÌí¼ÓÊı¾İ
-; disj É¾³ı¼¯ºÏÖĞµÄÄ³¸öÊı¾İ
-; get ¼¯ºÏÖĞ´æÔÚ¸ÃÖµÊ±, ·µ»Ø¸ÃÖµ, ·ñÔò·µ»Ø nil
-; Ö±½Ó½«¼¯ºÏ×÷Îªº¯Êıµ÷ÓÃÍ¬ÉÏ
+; conj å‘é›†åˆä¸­æ·»åŠ æ•°æ®
+; disj åˆ é™¤é›†åˆä¸­çš„æŸä¸ªæ•°æ®
+; get é›†åˆä¸­å­˜åœ¨è¯¥å€¼æ—¶, è¿”å›è¯¥å€¼, å¦åˆ™è¿”å› nil
+; ç›´æ¥å°†é›†åˆä½œä¸ºå‡½æ•°è°ƒç”¨åŒä¸Š
 ;(println
 ;  set_01
 ;  set_02 "\n"
@@ -133,17 +136,17 @@
 ;  (set_01 :a)
 ;  (set_02 :no-exists-key))
 
-; ĞèÒªÒıÈëÀà¿â
-; union ·µ»Ø¼¯ºÏµÄ²¢¼¯
-; intersection ·µ»Ø¼¯ºÏµÄ½»¼¯
-; difference ·µ»ØÔÚ¶ş¸ö¼¯ºÏÖĞÃ»ÓĞ³öÏÖ¹ıµÄµÚÒ»¸ö¼¯ºÏµÄÔªËØ
+; éœ€è¦å¼•å…¥ç±»åº“
+; union è¿”å›é›†åˆçš„å¹¶é›†
+; intersection è¿”å›é›†åˆçš„äº¤é›†
+; difference è¿”å›åœ¨äºŒä¸ªé›†åˆä¸­æ²¡æœ‰å‡ºç°è¿‡çš„ç¬¬ä¸€ä¸ªé›†åˆçš„å…ƒç´ 
 ;(use 'clojure.set)
 ;(println
 ;  (union set_01 set_02) "\n"
 ;  (intersection set_01 set_02) "\n"
 ;  (difference set_01 set_02))
 
-; ÓĞĞò¼¯ºÏ
+; æœ‰åºé›†åˆ
 ;(def set_03 (sorted-set :i :h :j))
 ;(println set_03)
 
@@ -154,7 +157,7 @@
 ;(def setTest (hash-set :a :b))
 ;(def sortedSetTest (sorted-set :a :b))
 
-; coll? ÅĞ¶ÏÊÇ·ñÊÇ¼¯ºÏÀà
+; coll? åˆ¤æ–­æ˜¯å¦æ˜¯é›†åˆç±»
 ;(println
 ;  (coll? listTest)
 ;  (coll? vectorTest)
@@ -163,7 +166,7 @@
 ;  (coll? setTest)
 ;  (coll? sortedSetTest))
 
-;seq? ÅĞ¶ÏÊÇ·ñÓĞĞò
+;seq? åˆ¤æ–­æ˜¯å¦æœ‰åº
 ;(println
 ;  (seq? listTest)
 ;  (seq? vectorTest)
@@ -172,8 +175,8 @@
 ;  (seq? setTest)
 ;  (seq? sortedSetTest))
 
-; range ´Ó 0 ¿ªÊ¼Éú³ÉÊı×Ö
-; take È¡Ç° n ¸öÊı×Ö,
+; range ä» 0 å¼€å§‹ç”Ÿæˆæ•°å­—
+; take å–å‰ n ä¸ªæ•°å­—,
 ;(println
 ;  (range 4)
 ;;  (range)
@@ -183,9 +186,9 @@
 ;  (take-last 4 (range 12))
 ;  (take-nth 6 (range 20)))
 
-; cons ÏòÏòÁ¿»òÕßÁĞ±íÍ·²¿Ìí¼ÓÊı¾İ
-; conj ÏòÏòÁ¿Î²²¿»òÊÇÁĞ±íÍ·²¿Ìí¼ÓÊı¾İ
-; concat ºÏ²¢ÏòÁ¿»òÕßÁĞ±í, ºÏ²¢ºóµÄ½á¹û×ÜÎªÁĞ±í
+; cons å‘å‘é‡æˆ–è€…åˆ—è¡¨å¤´éƒ¨æ·»åŠ æ•°æ®
+; conj å‘å‘é‡å°¾éƒ¨æˆ–æ˜¯åˆ—è¡¨å¤´éƒ¨æ·»åŠ æ•°æ®
+; concat åˆå¹¶å‘é‡æˆ–è€…åˆ—è¡¨, åˆå¹¶åçš„ç»“æœæ€»ä¸ºåˆ—è¡¨
 ;(println
 ;  (cons 4 [1 2 3])
 ;  (cons 4 '(1 2 3))
@@ -194,11 +197,11 @@
 ;  (concat [1 2] '(3 4))
 ;  (concat [1 2] [3 4]))
 
-; inc Ïàµ±ÓÚ ++
-; dec Ïàµ±ÓÚ --
-; map ¶Ô¼¯ºÏÖĞÃ¿Ò»ÏîÖ´ĞĞÒ»´Îº¯Êı
-; even? ÅĞ¶ÏÊÇ·ñÊÇÅ¼Êı
-; odd? ÅĞ¶ÏÊÇ·ñÊÇÆæÊı
+; inc ç›¸å½“äº ++
+; dec ç›¸å½“äº --
+; map å¯¹é›†åˆä¸­æ¯ä¸€é¡¹æ‰§è¡Œä¸€æ¬¡å‡½æ•°
+; even? åˆ¤æ–­æ˜¯å¦æ˜¯å¶æ•°
+; odd? åˆ¤æ–­æ˜¯å¦æ˜¯å¥‡æ•°
 ;(println
 ;  (inc 1)
 ;  (map inc [1 2 3])
@@ -206,29 +209,79 @@
 ;  (filter even? [1 2 3])
 ;  (filter odd? [1 2 3]))
 
-; reduce ²»Í£µ÷ÓÃ(Íü¼ÇÔõÃ´±íÊöÁË, ºÍ js µÄ reduce Ò»ÑùÓÃ, ËäÈ» js ¾ÍÊÇÑ§ lisp ×öµÄ reduce)
+; reduce ä¸åœè°ƒç”¨(å¿˜è®°æ€ä¹ˆè¡¨è¿°äº†, å’Œ js çš„ reduce ä¸€æ ·ç”¨, è™½ç„¶ js å°±æ˜¯å­¦ lisp åšçš„ reduce)
 ;(println
 ;  (reduce + [1 2 3 4])
 ;  (reduce + 1 [2 3 4])
 ;  (reduce concat [] [[1 2] [3 4] [5 6] [7 8]]))
 
-; fn [] º¯ÊıÌå ÉùÃ÷º¯Êı
+; fn [] å‡½æ•°ä½“ å£°æ˜å‡½æ•°
 ;(println ((fn [] "Hello, World!")))
 
-; ¶¨Òå±äÁ¿
+; å®šä¹‰å˜é‡
 ;(def variable 1)
 ;(println variable)
 
-; ¶¨Òåº¯Êı
+; å®šä¹‰å‡½æ•°
 ;(def helloWorld (fn [] "Hello, World!"))
 ;(println (helloWorld))
 
-; ¿ì½İ¶¨Òåº¯Êı
+; å¿«æ·å®šä¹‰å‡½æ•°
 ;(defn helloWorld2 [] "Hello, World!")
 ;(println (helloWorld2))
 
-(defn helloWorld3 [name]
-  (str "Hello" name))
+; å¿«æ·å®šä¹‰å¸¦å‚æ•°çš„å‡½æ•°
+;(defn helloWorld3 [name]
+;  (str "Hello" " " name))
+;(println (helloWorld3 "Kelvin"))
 
+; æ›´å¿«æ·çš„å®šä¹‰æ–¹æ³•, ä½†å‚æ•°å¤ªä¸æ˜ç¡®äº†
+;(def helloWorld4 #(str "Hello " %1))
+;(println (helloWorld4 "Sun"))
 
+; å‡½æ•°é‡è½½
+;(defn helloWorld5
+;  ([] "Hello World")
+;  ([name] (str "Hello " name)))
+;(println
+;  (helloWorld5 "Chengzuo")
+;  (helloWorld5))
+
+; å¯å˜å‚æ•°
+; å‚æ•°ä¸­ä½¿ç”¨ & xxx æ¥å°†ä»å½“å‰ä½ç½®åˆ°ç»“å°¾å‰©ä½™çš„æ‰€æœ‰å‚æ•°æ³¨å…¥åˆ° xxx ä¸­
+;(defn countArgs [& args]
+;  (str "You passed " (count args) " args: " args))
+;(println (countArgs 1 2 3 4 5))
+;
+;(defn countArgs1 [singleArg & args]
+;  (str
+;    (str "Single arg is: " singleArg) "\n"
+;    (str "You passed " (count args) " args: " args)))
+;(println (countArgs1 1 2 3 4 5))
+
+; åˆ¤æ–­è¯­å¥
+(println (if true (str "test " "a" ) "b"))
+
+; å®šä¹‰å±€éƒ¨å˜é‡
+(println (let [a 1 b 2 c 3]
+           (if (> a b) "Yes" c)))
+
+; é¡ºåºæ‰§è¡Œè¯­å¥å¹¶è¿”å›æœ€åä¸€ä¸ªè¯­å¥çš„å€¼
+(println
+  (do
+    (println "Hello")
+    (println "World")
+    "!"))
+
+; å‡½æ•°ç›¸å½“äºéšå«äº†ä¸€ä¸ª do ä¼šé¡ºåºæ‰§è¡Œæ‰€æœ‰çš„è¯­å¥
+(defn printSayHello [name]
+  (println "Saying hello to " name)
+  (str "Hello " name))
+(println (printSayHello "Kelvin"))
+
+; let è¯­å¥ä¹Ÿç›¸å½“äºéšå«äº†ä¸€ä¸ª do
+(println
+  (let [name "Kelvin"]
+    (println "Saying hello to " name)
+    (str "Hello " name)))
 

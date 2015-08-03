@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="clojure">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Program_Coding/clojure" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Program_Coding/clojure/src/jvm" />
+      <root url="file://$USER_HOME$/Program_Coding/clojure/test/java" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Program_Coding/clojure" recursive="false" />
+  </library>
+</component>
