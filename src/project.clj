@@ -317,6 +317,8 @@
 ; (. 对象 方法名) 调用方法
 ; (.方法名 对象) 调用方法
 ; (包名/方法名) 调用静态方法
+; java 的对象和 clojure 的对象有区别
+; clojure 的函数没有副作用不会更改只会新建, 但 java 的对象的方法有副作用, 改变原函数的操作将会成功
 ;(import java.util.Date)
 (ns test
   (:import
@@ -330,4 +332,10 @@
   (.getTime date)
   (System/currentTimeMillis) "\n"
   (doto cal
-    (.set 2000 0 1 0 0 0)))
+    (.set 2000 0 1 0 0 0)) "\n"
+  (doto (Date.)
+    (.setDate 10)
+    (.setMonth 9)) "\n"
+  (.setMonth date 9)
+  (.setDate date 10)
+  date)
