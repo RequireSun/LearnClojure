@@ -136,15 +136,39 @@
 ;  (set_01 :a)
 ;  (set_02 :no-exists-key))
 
+; ns 指定命名空间
+; :require 函数用于在命名空间内引入库, 参数为 库 + as + 别名的向量组
+; 引用库函数的几种方法:
+; :require 命名空间引用库
+; (use '库)                      引用整个库
+; (use '[库 :only [函数 ...])    引用几个函数
+; (refer '库)                    引用整个库
+; (require '库)                  引用整个库
+; (require '[库 :as 别名])       引用整个库并赋予别名
+; (库名【别名】/函数 ...)        直接调用
+;(ns test
+;  (:require
+;    [clojure.string :as str]
+;    [clojure.set :as set]))
+;
+;(def set_01 #{ :a :b :c :d })
+;(def set_02 #{ :e :f :d})
+
 ; 需要引入类库
 ; union 返回集合的并集
 ; intersection 返回集合的交集
 ; difference 返回在二个集合中没有出现过的第一个集合的元素
 ;(use 'clojure.set)
+;(use '[clojure.set :only [union]])
+;(require '[clojure.set :as libSet])
+;(refer 'clojure.set)
 ;(println
 ;  (union set_01 set_02) "\n"
-;  (intersection set_01 set_02) "\n"
-;  (difference set_01 set_02))
+;  (libSet/intersection set_01 set_02) "\n"
+;  (clojure.set/difference set_01 set_02) "\n"
+;  (merge set_02 set_01)
+;  (str/blank? ""))
+
 
 ; 有序集合
 ;(def set_03 (sorted-set :i :h :j))
@@ -260,28 +284,28 @@
 ;(println (countArgs1 1 2 3 4 5))
 
 ; 判断语句
-(println (if true (str "test " "a" ) "b"))
+;(println (if true (str "test " "a" ) "b"))
 
 ; 定义局部变量
-(println (let [a 1 b 2 c 3]
-           (if (> a b) "Yes" c)))
+;(println (let [a 1 b 2 c 3]
+;           (if (> a b) "Yes" c)))
 
 ; 顺序执行语句并返回最后一个语句的值
-(println
-  (do
-    (println "Hello")
-    (println "World")
-    "!"))
+;(println
+;  (do
+;    (println "Hello")
+;    (println "World")
+;    "!"))
 
 ; 函数相当于隐含了一个 do 会顺序执行所有的语句
-(defn printSayHello [name]
-  (println "Saying hello to " name)
-  (str "Hello " name))
-(println (printSayHello "Kelvin"))
+;(defn printSayHello [name]
+;  (println "Saying hello to " name)
+;  (str "Hello " name))
+;(println (printSayHello "Kelvin"))
 
 ; let 语句也相当于隐含了一个 do
-(println
-  (let [name "Kelvin"]
-    (println "Saying hello to " name)
-    (str "Hello " name)))
+;(println
+;  (let [name "Kelvin"]
+;    (println "Saying hello to " name)
+;    (str "Hello " name)))
 
