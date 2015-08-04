@@ -309,3 +309,25 @@
 ;    (println "Saying hello to " name)
 ;    (str "Hello " name)))
 
+; 引入 java 包
+; import 直接引入
+; ns 跟着 :import 引入
+; 调用 java 函数
+; (类名 + .) new 一个该类的对象
+; (. 对象 方法名) 调用方法
+; (.方法名 对象) 调用方法
+; (包名/方法名) 调用静态方法
+;(import java.util.Date)
+(ns test
+  (:import
+    java.util.Date
+    java.util.Calendar))
+
+(def date (Date.))
+(def cal (Calendar/getInstance))
+(println
+  (. date getTime)
+  (.getTime date)
+  (System/currentTimeMillis) "\n"
+  (doto cal
+    (.set 2000 0 1 0 0 0)))
