@@ -319,6 +319,7 @@
 ; (包名/方法名) 调用静态方法
 ; java 的对象和 clojure 的对象有区别
 ; clojure 的函数没有副作用不会更改只会新建, 但 java 的对象的方法有副作用, 改变原函数的操作将会成功
+; doto 相当于 js 中的 using, 在此空间中始终使用开始指定的对象作为函数的调用者
 ;(import java.util.Date)
 (ns test
   (:import
