@@ -318,16 +318,23 @@
 ; (.方法名 对象) 调用方法
 ; (包名/方法名) 调用静态方法
 ;(import java.util.Date)
-(ns test
-  (:import
-    java.util.Date
-    java.util.Calendar))
+;(ns test
+;  (:import
+;    java.util.Date
+;    java.util.Calendar))
+;
+;(def date (Date.))
+;(def cal (Calendar/getInstance))
+;(println
+;  (. date getTime)
+;  (.getTime date)
+;  (System/currentTimeMillis) "\n"
+;  (doto cal
+;    (.set 2000 0 1 0 0 0)))
 
-(def date (Date.))
-(def cal (Calendar/getInstance))
-(println
-  (. date getTime)
-  (.getTime date)
-  (System/currentTimeMillis) "\n"
-  (doto cal
-    (.set 2000 0 1 0 0 0)))
+; require 引入 clojure 包
+; 巨坑: clojure 的命名规范是使用 - 横线作为连字符
+; 但分包时, 命名空间中的横线需要转化为 _ 下划线
+(require '[learn.my-project :as my-project])
+
+(my-project/test-hello)
