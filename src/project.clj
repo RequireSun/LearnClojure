@@ -321,7 +321,7 @@
 ; clojure 的函数没有副作用不会更改只会新建, 但 java 的对象的方法有副作用, 改变原函数的操作将会成功
 ; doto 相当于 js 中的 using, 在此空间中始终使用开始指定的对象作为函数的调用者
 ;(import java.util.Date)
-<<<<<<< HEAD
+
 ;(ns test
 ;  (:import
 ;    java.util.Date
@@ -342,24 +342,3 @@
 (require '[learn.my-project :as my-project])
 
 (my-project/test-hello)
-=======
-(ns test
-  (:import
-    java.util.Date
-    java.util.Calendar))
-
-(def date (Date.))
-(def cal (Calendar/getInstance))
-(println
-  (. date getTime)
-  (.getTime date)
-  (System/currentTimeMillis) "\n"
-  (doto cal
-    (.set 2000 0 1 0 0 0)) "\n"
-  (doto (Date.)
-    (.setDate 10)
-    (.setMonth 9)) "\n"
-  (.setMonth date 9)
-  (.setDate date 10)
-  date)
->>>>>>> b2bef75867bac8420a0b7507fc269abef1cbe828
