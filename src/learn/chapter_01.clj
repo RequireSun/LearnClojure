@@ -43,6 +43,7 @@
 
 ; 练习 1.3
 
+; 方法 1
 (def merge-bigger-1
      (fn [a b c]
          (cond (and (> a c) (> b c)) (+ a b)
@@ -61,6 +62,7 @@
              b
              a)))
 
+; 方法 2
 (def merge-bigger-2
      (fn [a b c]
          (+ (bigger a b)
