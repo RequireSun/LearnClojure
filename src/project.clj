@@ -339,6 +339,16 @@
 ; require 引入 clojure 包
 ; 巨坑: clojure 的命名规范是使用 - 横线作为连字符
 ; 但分包时, 命名空间中的横线需要转化为 _ 下划线
-(require '[learn.my-project :as my-project])
+;(require '[learn.my-project :as my-project])
+;
+;(my-project/test-hello)
 
-(my-project/test-hello)
+;(def abs
+;  (fn [x]
+;    (cond (> x 0) x
+;           (= x 0) 0
+;           (< x 0) (- x))))
+;
+;(println (abs -8))
+
+(require '[learn.chapter_01 :as chapter_01])
