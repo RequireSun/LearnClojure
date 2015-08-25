@@ -2,17 +2,20 @@
 
 ; 练习 1.1
 
-(println "practice 1.1-1:"
+(println "====================")
+
+(println "practice 1.1-1:\n"
          10                   ; 10
          (+ 5 3 4)            ; 12
          (- 9 1)              ; 8
          (/ 6 2)              ; 3
-         (+ (* 2 4) (- 4 6))) ; 6
+         (+ (* 2 4) (- 4 6))  ; 6
+         "\n====================")
 
 (def a 3)                     ; 3
 (def b (+ a 1))               ; 4
 
-(println "practice 1.1-2:"
+(println "practice 1.1-2:\n"
          (+ a b (* a b))        ; 19
          (= a b)
          (if (and (> b a) (< b (* a b)))
@@ -25,11 +28,12 @@
          (* (cond (> a b) a
                   (< a b) b
                   (:else) -1)
-            (+ a 1)))           ; 16
+            (+ a 1))            ; 16
+         "\n====================")
 
 ; 练习 1.2
 
-(println "practice 1.2:"
+(println "practice 1.2:\n"
          (/ (+ 5
                4
                (- 2
@@ -38,7 +42,8 @@
                         (/ 4 5)))))
             (* 3
                (- 6 2)
-               (- 2 7))))
+               (- 2 7)))
+         "\n====================")
 ; -37/150
 
 ; 练习 1.3
@@ -49,8 +54,9 @@
          (cond (and (> a c) (> b c)) (+ a b)
                (and (> c b) (> a b)) (+ c a)
                :else (+ b c))))
-(println "practice 1.3-1:"
-         (merge-bigger-1 1 2 3))
+(println "practice 1.3-1:\n"
+         (merge-bigger-1 1 2 3)
+         "\n====================")
 
 (def bigger
      (fn [a b]
@@ -69,8 +75,9 @@
          (+ (bigger a b)
             (bigger (smaller a b) c))))
 
-(println "practice 1.3-2:"
-         (merge-bigger-2 1 2 3))
+(println "practice 1.3-2:\n"
+         (merge-bigger-2 1 2 3)
+         "\n====================")
 
 ; 练习 1.4
 
@@ -84,11 +91,139 @@
               -) a
                  b)))
 
-(println "practice 1.4:"
+(println "practice 1.4:\n"
          (a-plus-abs-b 1 2)
-         (a-plus-abs-b 1 -2))
+         (a-plus-abs-b 1 -2)
+         "\n====================")
 
 ; 练习 1.5
 
 (defn p [] p)
-(println (p))
+(defn practice-1-5
+      [x y]
+      (if (= x 0)
+          0
+          y))
+
+(println "practice 1.5:\n"
+         (practice-1-5 0 (p))
+         "\n====================")
+
+; 解释:
+; 背景: p 函数将会形成一个自己调用自己的无限递归, 所以只要执行 p 函数, 程序就会死循环
+; 应用序: practice 函数调用时将会计算两参数的值, 调用 p 函数使程序陷入假死
+; 正则序: practice 函数调用时将两参数传进 practice 函数体中
+;        程序进行到 if 语句
+;        求 x 的值, 代换为传入的 0
+;        程序进行到 if 的成功语句中, 返回 0
+; 重点在于理解应用序的立即求值与正则序的用时求值
+
+; 实例 1.1.7
+
+(defn average
+      [x y]
+      (/ (+ x y) 2))
+
+(defn improve
+      [guess x]
+      (average guess (/ x guess)))
+
+(defn abs
+      [x]
+      (if (< x 0)
+          (- x)
+          x))
+
+(defn square
+      [x]
+      (* x x))
+
+(defn good-enough?
+      [guess x]
+      (< (abs (- (square guess)
+                 x))
+         0.001))
+
+(defn sqrt-iter
+      [guess x]
+      (if (good-enough? guess x)
+          guess
+          (sqrt-iter (improve guess x)
+                     x)))
+
+(defn sqrt
+      [x]
+      (sqrt-iter 1.0 x))
+
+(println "example 1.1.7:\n"
+         (sqrt 9)
+         "\n"
+         (sqrt (+ 100 37))
+         "\n"
+         (sqrt (+ (sqrt 2)
+                  (sqrt 3)))
+         "\n"
+         (square (sqrt 1000))
+         "\n====================")
+
+; 练习 1.6
+
+; 个人猜测:
+; 如果使用应用序解析的编译器, 在调用 new-if 函数时, 会计算 else-clause 的式子的值
+; 此时又会进入一个新的 sqrt-iter 函数, 并再次在其中调用 new-if 函数, 自此程序陷入无限循环
+
+; 实际上:
+; if 语句是一个特殊的语句, 他只会根据输入值执行对应的语句
+; 而我们自己定义的语句则会计算所有参数的值, 所以会出错
+
+; 练习 1.7
+
+(defn good-enough-new?
+  [guess-old guess-new]
+  (> 0.0001
+     (abs (- 1
+             (/ guess-old guess-new)))))
+
+; let: 在其语句内定义变量, 减少运算量
+(defn sqrt-iter-new
+      [guess x]
+      (let [guess-new (improve guess x)]
+           (if (good-enough-new? guess guess-new)
+               guess-new
+               (sqrt-iter-new guess-new
+                              x))))
+
+(defn sqrt-new
+      [x]
+      (sqrt-iter-new 1.0 x))
+
+(println "practice 1.7:\n"
+         "old:"
+         (sqrt 0.00009)
+         "\n new:"
+         (sqrt-new 0.00009)
+         "\n====================")
+
+; 练习 1.8
+
+(defn improve-cube
+      [guess x]
+      (/ (+ (/ x
+               (* guess guess))
+            (* 2 guess))
+         3))
+
+(defn cube-iter
+      [guess x]
+      (let [guess-new (improve-cube guess x)]
+      (if (good-enough-new? guess guess-new)
+          guess-new
+          (cube-iter guess-new x))))
+
+(defn cube
+      [x]
+      (cube-iter 1.0 x))
+
+(println "practice 1.8:\n"
+  (cube 27)
+  "\n====================")
